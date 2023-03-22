@@ -30,23 +30,39 @@ string[] CreateArrayStr(int num)
 
 void PrintArray(string[] arr)
 {
-  Console.WriteLine($"Введенный массив: ");
   Console.Write("[");
   for (int i = 0; i < arr.Length - 1; i++)
   {
-    Console.Write($"{arr[i]}, ");
+    Console.Write($"{arr[i]}  ");
   }
   Console.Write($"{arr[arr.Length - 1]}");
   Console.Write("]");
 }
 
-
+void FindElements(string[] arr)
+{
+  Console.Write("[");
+  for (int i = 0; i < arr.Length; i++)
+  {
+    int count = 0;
+    if (arr[i].Length <= 3)
+    {
+      Console.Write($" {arr[i]}  ");
+      count++;
+    }
+  }
+   Console.Write("]"); 
+}
 
 int number = Promt("Введите количество элементов в массиве: ");
 if (number > 0)
 {
   string[] array = CreateArrayStr(number);
+  Console.WriteLine($"Исходный массив:");
   PrintArray(array);
+  Console.WriteLine();
+  Console.WriteLine($"Массив из элементов исходного массива, количество символов которых меньше либо равна 3:");
+  FindElements(array);
 }
- else Console.WriteLine($"Введите число больше нуля.");
+else Console.WriteLine($"Введите число больше нуля.");
 
